@@ -1,4 +1,4 @@
-Link to the live app- https://srishajha-loan-eligibility-predictor.streamlit.app/
+Link to the live app- https://srisha-loan-eligibility-predictor.streamlit.app/
 This app predicts whether a bank should approve or reject a loan application based on the applicant's income, credit history, and other details.
 I built this as my first ML project to explore model training, and deployment.
 Trained a Random Forest classifier on Kaggle's loan prediction dataset. Cleaned missing values, encoded categorical features, and achieved 80% accuracy.
