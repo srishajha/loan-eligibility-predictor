@@ -59,13 +59,13 @@ How It Works:
 
 ## Project Structure
 
-loan-eligibility-predictor/
-├── app.py              # Streamlit web app
-├── model.pkl           # Trained ML model
-├── columns.pkl         # Feature column order
-├── train.csv           # Dataset
-├── requirements.txt    # Dependencies
-└── README.md           # Project documentation
+loan-eligibility-predictor
+app.py              # Streamlit web app
+model.pkl           # Trained ML model
+columns.pkl         # Feature column order
+train.csv           # Dataset
+requirements.txt    # Dependencies
+README.md           # Project documentation
 
 
 ## Author
