@@ -64,8 +64,8 @@ with col2:
 st.markdown('<p class="section-header">💰 Financial Details</p>', unsafe_allow_html=True)
 col3, col4 = st.columns(2)
 with col3:
-    income = st.number_input("Applicant Income (₹)", min_value=0, step=1000, value=5000)
-    co_income = st.number_input("Coapplicant Income (₹)", min_value=0, step=1000, value=0)
+    income = st.number_input("Applicant Income (₹/month)", min_value=0, step=1000, value=5000)
+    co_income = st.number_input("Coapplicant Income (₹/month)", min_value=0, step=1000, value=0)
     credit_score = st.number_input("Credit Score", min_value=300, max_value=900, value=700)
 with col4:
     loan_amount = st.number_input("Loan Amount (₹ thousands)", min_value=0, step=10, value=150)
