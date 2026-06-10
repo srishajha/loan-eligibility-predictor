@@ -65,8 +65,11 @@ st.markdown('<p class="section-header">💰 Financial Details</p>', unsafe_allow
 col3, col4 = st.columns(2)
 with col3:
     income = st.number_input("Applicant Income (₹/month)", min_value=0, step=1000, value=5000)
-    co_income = st.number_input("Coapplicant Income (₹/month)", min_value=0, step=1000, value=0)
-    credit_score = st.number_input("Credit Score", min_value=300, max_value=900, value=700)
+    has_coapplicant = st.checkbox("Include coapplicant income")
+    co_income = 0
+    if has_coapplicant:
+        co_income = st.number_input("Coapplicant Monthly Income (₹)", min_value=0, step=1000, value=0)
+    existing_emi = st.number_input("Existing Monthly EMI/Obligations (₹)", min_value=0, step=500, value=0)
 with col4:
     loan_amount_full = st.number_input("Loan Amount (₹)", min_value=0, step=10, value=150)
     loan_amount = loan_amount_full / 1000
@@ -86,10 +89,6 @@ if st.button("Check Loan Eligibility →"):
         st.error("❌ Applicant age must be between 21 and 60 years.")
         st.stop()
 
-    # Credit score warning
-    if credit_score < 650:
-        st.warning("⚠️ Credit score below 650 significantly reduces approval chances.")
-
     # Encode inputs
     gender_val = 1 if gender == "Male" else 0
     married_val = 1 if married == "Yes" else 0
@@ -100,8 +99,9 @@ if st.button("Check Loan Eligibility →"):
 
     # Engineered features
     total_income = income + co_income
-    dti = loan_amount / (total_income + 1)
     emi = loan_amount / loan_term
+    total_obligations = existing_emi + emi
+    dti = total_obligations / (total_income + 1)
     income_loan_ratio = total_income / (loan_amount + 1)
 
     # Build input in exact column order
