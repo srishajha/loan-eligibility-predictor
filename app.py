@@ -68,7 +68,8 @@ with col3:
     co_income = st.number_input("Coapplicant Income (₹/month)", min_value=0, step=1000, value=0)
     credit_score = st.number_input("Credit Score", min_value=300, max_value=900, value=700)
 with col4:
-    loan_amount = st.number_input("Loan Amount (₹ thousands)", min_value=0, step=10, value=150)
+    loan_amount_full = st.number_input("Loan Amount (₹)", min_value=0, step=10, value=150)
+    loan_amount = loan_amount_full / 1000
     loan_term = st.selectbox("Loan Term", [360, 120, 180, 240, 300, 480],
                               format_func=lambda x: f"{x} days")
     credit_history = st.selectbox("Credit History", ["Good", "Bad"])
